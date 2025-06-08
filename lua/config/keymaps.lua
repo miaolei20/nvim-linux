@@ -19,7 +19,7 @@ end
 
 -- Window resize function
 local function resize_window(direction, step)
-  step = vim.v.count1 * (step or 2)   -- Default step is 2 if not specified
+  step = vim.v.count1 * (step or 2) -- Default step is 2 if not specified
   local win = vim.api.nvim_get_current_win()
   local actions = {
     h = {
@@ -45,8 +45,8 @@ local function resize_window(direction, step)
   }
   local action = actions[direction]
   if action then
-    local current_size = action.get(win)              -- Get current width or height
-    action.func(win, current_size + action.delta)     -- Set new size
+    local current_size = action.get(win)          -- Get current width or height
+    action.func(win, current_size + action.delta) -- Set new size
   else
     vim.notify("Invalid resize direction: " .. tostring(direction), vim.log.levels.WARN)
   end
